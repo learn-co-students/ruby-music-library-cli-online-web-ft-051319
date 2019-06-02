@@ -11,7 +11,10 @@ class Song
  
  def genre=(genre)
    @genre = genre
-   genre.add_song(self)
+   if genre.songs.include?(self) == false
+     genre.songs << self  
+   end
+  # genre.add_song(self)
  end
   
  @@all = []
