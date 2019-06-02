@@ -1,7 +1,7 @@
 require_relative './parent.rb'
 
 class Genre
-  attr_accessor :name,
+  attr_accessor :name
   
   @@all = []
   
