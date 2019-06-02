@@ -2,10 +2,13 @@ require_relative './concerns/findable.rb'
 require_relative './parent.rb'
 require "pry"
 
-class Artist < Parent
+class Artist
+  attr_accessor :name
+  
+  @@all = []
   
   def initialize(name)
-    super
+    @name = name
     @songs = []
   end
   
@@ -19,5 +22,24 @@ class Artist < Parent
       @songs << song
     end
   end
+ 
+  def self.all
+    @@all
+  end
+  
+  def save
+    @@all << self
+  end
+  
+  def self.destroy_all
+    @@all.clear
+  end
+  
+  def self.create(name)
+    object_i = self.new(name)
+    object_i.save
+    object_i
+  end
+  
   
 end

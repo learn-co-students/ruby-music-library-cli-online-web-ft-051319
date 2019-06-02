@@ -10,6 +10,17 @@ class Genre
     @songs = []
   end
   
+  def songs
+    @songs
+  end
+  
+  def add_song(song)
+    if song.genre ==nil
+      song.genre = self
+      @songs << song
+    end
+  end
+  
   def self.all
     @@all
   end

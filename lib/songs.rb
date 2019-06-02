@@ -2,23 +2,33 @@ require_relative './parent.rb'
 
 class Song
  attr_accessor :name
- attr_reader :artist
+ attr_reader :artist, :genre
  
  def artist=(artist)
     @artist = artist
     artist.add_song(self)
  end
+ 
+ def genre=(genre)
+   @genre = genre
+   genre.add_song(self)
+ end
   
  @@all = []
  
  
- def initialize(name, artist = nil)
+ def initialize(name, artist = nil, genre = nil)
     @name = name
     @artist = artist
+    @genre = genre
     if artist != nil
       self.artist=(artist)
     end
+    if genre != nil
+      self.genre=(genre)
+    end
   end
+  
   
   
   def self.all
