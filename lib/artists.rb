@@ -3,7 +3,7 @@ require_relative './parent.rb'
 require "pry"
 
 class Artist < Parent
-  extend Concerns::Findable
+  
   def initialize(name)
     super
     @songs = []
