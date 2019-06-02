@@ -2,8 +2,10 @@ require_relative './concerns/findable.rb'
 require_relative './parent.rb'
 require "pry"
 
+
 class Artist
-  attr_accessor :name
+  
+attr_accessor :name
   
   @@all = []
   
@@ -40,6 +42,5 @@ class Artist
     object_i.save
     object_i
   end
-  
-  
+
 end
