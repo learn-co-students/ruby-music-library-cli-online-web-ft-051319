@@ -1,3 +1,5 @@
+require 'pry'
+
 class MusicLibraryController
   attr_accessor :path
 
@@ -23,6 +25,27 @@ class MusicLibraryController
   end
   end
 
+  def list_songs
+    Song.all.uniq.sort_by(&:name).each.with_index(1) do |song, index|
+      puts "#{index}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+    end
+  end
+
+  def list_artists
+    Artist.all.uniq.sort_by(&:name).each.with_index(1) do |artist, index|
+      puts "#{index}. #{artist.name}"
+    end
+  end
+
+  def list_genres
+    Genre.all.uniq.sort_by(&:name).each.with_index(1) do |genre, index|
+      puts "#{index}. #{genre.name}"
+    end
+  end
+
+  def list_songs_by_artist
+
+  end
 
 
 
