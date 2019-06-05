@@ -19,4 +19,10 @@ class MusicImporter
 
     entries
   end
+
+  def import
+    self.files.each do |fname|
+      Song.create_from_filename(fname)
+    end
+  end
 end

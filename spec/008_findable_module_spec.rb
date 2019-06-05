@@ -24,7 +24,7 @@ describe "Genre" do
 end
 
 describe "Concerns::Findable" do
-  binding.pry
+  # binding.pry
   let!(:artist_one) { Artist.create("Madonna") }
   let!(:artist_two) { Artist.create("Slowdive") }
   let!(:genre_one) { Genre.create("pop") }
