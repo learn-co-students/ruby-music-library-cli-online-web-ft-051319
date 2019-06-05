@@ -1,5 +1,5 @@
 class Artist
-  extend Concerns::ClassMethods
+  extend Concerns::ClassMethods, Concerns::Findable
   include Concerns::InstanceMethods
 
   attr_accessor :name, :songs

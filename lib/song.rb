@@ -1,6 +1,7 @@
 class Song
-  extend Concerns::ClassMethods
+  extend Concerns::ClassMethods, Concerns::Findable
   include Concerns::InstanceMethods
+
 
   attr_accessor :name, :artist, :genre
 
@@ -17,6 +18,8 @@ class Song
     song.save
     song
   end
+
+
 
   def artist=(artist)
     @artist = artist
