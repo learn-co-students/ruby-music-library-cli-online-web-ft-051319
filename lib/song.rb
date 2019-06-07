@@ -1,6 +1,9 @@
-require_relative './parent.rb'
+#require_relative './concerns/findable.rb'
 
 class Song
+ 
+  extend Concerns::Findable
+  
  attr_accessor :name
  attr_reader :artist, :genre
  
@@ -14,7 +17,6 @@ class Song
    if genre.songs.include?(self) == false
      genre.songs << self  
    end
-  # genre.add_song(self)
  end
   
  @@all = []
@@ -48,5 +50,17 @@ class Song
     object_i = self.new(name)
     object_i.save
     object_i
+  end
+  
+  def self.new_from_filename(filename)
+    new_fn = filename.split (" - ")
+    name = new_fn[1]
+    artist = Artist.find_or_create_by_name(new_fn[0])
+    genre = Genre.find_or_create_by_name(new_fn[2].gsub(".mp3", ""))
+    song = Song.new(name, artist, genre)
+  end
+  
+  def self.create_from_filename.
+    self.new_from_filename(filename)
   end
 end

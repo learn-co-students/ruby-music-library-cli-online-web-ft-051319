@@ -1,12 +1,12 @@
-require_relative './concerns/findable.rb'
-require_relative './parent.rb'
-require "pry"
-
+ require_relative './concerns/findable.rb'
 
 class Artist
+
   
 attr_accessor :name, :songs
   
+   extend Concerns::Findable
+   
   @@all = []
   
   def initialize(name)
@@ -16,15 +16,22 @@ attr_accessor :name, :songs
   
   def songs
     @songs
+    # Song.all.select{|song| song.artist ==self}
   end
   
   def add_song(song)
-    if song.artist ==nil
-      song.artist = self
-      @songs << song
-    end
+    song.artist = self unless song.artist
+      songs << song unless songs.include?(song)
+    # if song.artist ==nil
+    #   song.artist = self
+    #   songs << song
+    # end
   end
- 
+  
+  def genres
+    songs.collect{|song| song.genre}.uniq
+  end  
+  
   def self.all
     @@all
   end

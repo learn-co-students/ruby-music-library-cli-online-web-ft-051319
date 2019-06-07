@@ -1,6 +1,8 @@
-require_relative './parent.rb'
+
 
 class Genre
+  extend Concerns::Findable
+   
   attr_accessor :name
   attr_reader :songs
   
@@ -11,19 +13,9 @@ class Genre
     @songs = []
   end
   
-  # def add_song(song)
-  #     if song.genre ==nil
-  #       song.genre = self
-  #       # if self.songs.(song) == nil
-  #         @songs << song
-  #       # end
-  #     elsif song.genre == self
-  #       # if self.songs.find(song) == nil
-  #         @songs << song
-  #       # end
-  #     end
-  
-  # end
+  def artists
+    @songs.collect {|song| song.artist}.uniq
+  end
   
   def self.all
     @@all
