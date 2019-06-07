@@ -36,6 +36,18 @@ class MusicLibraryController
   end
   
   def list_songs_by_artist
+    input = nil
+    
     puts "Please enter the name of an artist:"
+    
+    input = gets.chomp
+    
+    if input.find_by_name
+      biding.pry
+    # if artist.all.include?(input) == true
+    #   input.select(|artist| artist.name == input).each.with_index(1){|artist, index| "#{index}. #{artist.songs
+      
+    
+  end
 end
 
