@@ -18,6 +18,16 @@ class MusicLibraryController
     puts "What would you like to do?"
     input = gets.chomp 
     end
+    
+    case input
+    
+      when 'list songs'
+        self.list_songs
+      when 'list artist'
+        self.list_artists
+      when 'list genres'
+        self.list_genres
+    end
   end
   
   def list_songs
