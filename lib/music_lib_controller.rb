@@ -33,9 +33,8 @@ class MusicLibraryController
         self.list_songs_by_genre
       when 'play song'
         self.play_song
-      when 'exit'
-        
     end
+    'exit'
   end
   
   def list_songs
