@@ -19,11 +19,6 @@ attr_accessor :name, :songs
     @songs = []
   end
   
-  def songs
-    @songs
-    # Song.all.select{|song| song.artist ==self}
-  end
-  
   def add_song(song)
     song.artist = self unless song.artist
       songs << song unless songs.include?(song)
