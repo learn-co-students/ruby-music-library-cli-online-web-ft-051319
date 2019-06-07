@@ -16,25 +16,24 @@ class MusicLibraryController
     puts "To play a song, enter 'play song'."
     puts "To quit, type 'exit'."
     puts "What would you like to do?"
+    
     input = gets.chomp 
+  
+      case input
+        when 'list songs'
+          self.list_songs
+        when 'list artists'
+          self.list_artists
+        when 'list genres'
+          self.list_genres
+        when 'list artist'
+          self.list_songs_by_artist
+        when 'list genre'
+          self.list_songs_by_genre
+        when 'play song'
+          self.play_song
+      end
     end
-    
-    case input
-    
-      when 'list songs'
-        self.list_songs
-      when 'list artists'
-        self.list_artists
-      when 'list genres'
-        self.list_genres
-      when 'list artist'
-        self.list_songs_by_artist
-      when 'list genres'
-        self.list_songs_by_genre
-      when 'play song'
-        self.play_song
-    end
-    'exit'
   end
   
   def list_songs
