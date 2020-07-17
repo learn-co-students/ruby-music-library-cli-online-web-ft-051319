@@ -1,4 +1,5 @@
 require "spec_helper"
+require "pry"
 
 describe "Concerns::Findable" do
   it "defines a module named Concerns::Findable" do
@@ -23,6 +24,7 @@ describe "Genre" do
 end
 
 describe "Concerns::Findable" do
+  # binding.pry
   let!(:artist_one) { Artist.create("Madonna") }
   let!(:artist_two) { Artist.create("Slowdive") }
   let!(:genre_one) { Genre.create("pop") }
