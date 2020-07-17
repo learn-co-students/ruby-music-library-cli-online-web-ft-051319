@@ -1,7 +1,5 @@
-require 'bundler'
-Bundler.require
+module Concerns::Findable
 
-module Concerns
   def find_by_name(name)
     self.all.find{|song| song.name==name}
   end
@@ -12,7 +10,5 @@ module Concerns
     else find_by_name(name)
     end
   end
+
 end
-
-
-require_all 'lib'
