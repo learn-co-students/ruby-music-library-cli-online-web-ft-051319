@@ -38,7 +38,7 @@ describe "MusicLibraryController - CLI Commands" do
       allow(music_library_controller).to receive(:gets).and_return("list artist", "exit")
 
       expect(music_library_controller).to receive(:list_songs_by_artist)
-
+      # binding.pry
       capture_puts { music_library_controller.call }
     end
   end
